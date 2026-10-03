@@ -29,6 +29,7 @@
     #btn-leave-gift:hover { background: #dd3388; }
 
     #btn-edit-mode { position: absolute; top: 60px; right: 15px; background: #889999; color: white; border: 2px solid #556666; padding: 8px 16px; border-radius: 12px; font-weight: bold; cursor: pointer; z-index: 9999; transition: 0.2s; box-shadow: 0 4px 8px rgba(0,0,0,0.3); pointer-events: auto; }
+      #btn-edit-mode { position: relative; inset: auto; align-self: flex-start; background: #889999; color: white; border: 2px solid #556666; padding: 8px 16px; border-radius: 8px; font-weight: bold; cursor: pointer; z-index: auto; transition: 0.2s; box-shadow: 0 4px 8px rgba(0,0,0,0.3); pointer-events: auto; }
     #btn-edit-mode.active { background: #ff4433; border-color: #cc2211; animation: pulseEdit 1.5s infinite; }
     @keyframes pulseEdit { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
@@ -37,13 +38,15 @@
     #btn-edit-apply { background: #2e7d32; color: white; border: none !important; }
 
     /* TOP HUD */
-    #hud-top { position: absolute; top: 15px; left: 15px; display: none; gap: 12px; align-items: center; background: rgba(0, 0, 0, 0.7); padding: 10px 20px; border-radius: 30px; z-index: 9999; color: white; font-weight: bold; border: 2px solid rgba(255,255,255,0.2); box-shadow: 0 4px 12px rgba(0,0,0,0.4); backdrop-filter: blur(4px); pointer-events: auto; flex-wrap: wrap; max-width: 85vw; }
+    #hud-top { position: absolute; top: 10px; left: 12px; right: 12px; box-sizing: border-box; width: auto; display: none; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; background: rgba(0, 0, 0, 0.7); padding: 10px 14px; border-radius: 12px; z-index: 1000; color: white; font-weight: bold; border: 2px solid rgba(255,255,255,0.2); box-shadow: 0 4px 12px rgba(0,0,0,0.4); backdrop-filter: blur(4px); pointer-events: auto; }
     .hud-stat { display: flex; align-items: center; gap: 6px; font-size: 15px; }
     .hud-stat span { color: #ffd700; font-size: 16px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
     #hud-energy-wrapper span { color: #00ffff; }
     #hud-username { font-size: 16px; color: #fff; padding-right: 12px; border-right: 2px solid rgba(255,255,255,0.3); }
 
-    .farm-name-wrapper { display: flex; align-items: center; gap: 5px; margin-left: 5px; border-left: 1px solid rgba(255,255,255,0.3); padding-left: 12px; }
+    #left-secondary-ui { position: absolute; top: var(--secondary-ui-top, 80px); left: 15px; display: none; flex-direction: column; align-items: flex-start; gap: 10px; z-index: 999; pointer-events: none; max-width: calc(100vw - 30px); }
+    #left-secondary-ui > * { position: relative !important; inset: auto !important; transform: none !important; pointer-events: auto; }
+    .farm-name-wrapper { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; margin: 0; border: 0; padding: 8px 10px; border-radius: 8px; background: rgba(0,0,0,.72); box-shadow: 0 4px 12px rgba(0,0,0,.3); }
     #ui-farm-name-input { padding: 6px; border-radius: 6px; border: none; width: 110px; font-weight: bold; outline: none; }
     #btn-save-name { background: #77bb44; color: white; border: none; border-radius: 6px; padding: 6px 10px; cursor: pointer; font-weight: bold; transition: 0.2s; pointer-events: auto; }
     #btn-save-name:hover { background: #88cc55; transform: scale(1.05); }
@@ -63,7 +66,7 @@
     #btn-buy-energy { margin-left:3px; background:#00ffff; color:#000; border:none; border-radius:50%; font-weight:bold; cursor:pointer; width:22px; height:22px; box-shadow: 0 2px 4px rgba(0,0,0,0.5); transition: 0.2s; pointer-events: auto; }
     #btn-buy-energy:hover { transform: scale(1.1); background:#fff; }
 
-    #worker-task-panel { position: absolute; top: 92px; left: 15px; display: none; align-items: center; gap: 8px; background: rgba(0,0,0,0.72); color: white; padding: 8px 12px; border-radius: 10px; z-index: 9999; pointer-events: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+    #worker-task-panel { position: relative; inset: auto; display: none; flex-wrap: wrap; align-items: center; gap: 8px; box-sizing: border-box; max-width: calc(100vw - 30px); background: rgba(0,0,0,0.72); color: white; padding: 8px 12px; border-radius: 8px; z-index: auto; pointer-events: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
     #worker-task-panel label { font-size: 11px; font-weight: bold; letter-spacing: 0.04em; }
     #worker-task-select { padding: 6px 8px; border-radius: 6px; border: none; font-weight: bold; background: #f5f5f5; }
     #worker-name-input { width: 92px; padding: 6px 8px; border: none; border-radius: 6px; font-weight: bold; }
@@ -99,6 +102,7 @@
     .world-control { width: 42px; height: 42px; border: 1px solid #d2d7c7; border-radius: 9px; background: rgba(37,65,43,.94); color: #fff; font-size: 19px; font-weight: bold; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.35); }
     #btn-toolbar-toggle { width: auto; padding: 0 12px; font-size: 14px; }
     #btn-main-control { width: auto; padding: 0 10px; font-size: 13px; }
+      #btn-reset-pixel-farm { width: auto; padding: 0 10px; font-size: 11px; }
     #placement-rotation { position: absolute; right: 14px; bottom: calc(var(--dock-clearance, 14px) + 48px); z-index: 9998; padding: 7px 10px; border-radius: 8px; background: rgba(37,65,43,.9); color: white; font-weight: bold; font-size: 12px; pointer-events: none; }
     .char-btn[data-char] { display: inline-flex; flex-direction: column; align-items: center; min-width: 82px; gap: 4px; }
     .char-portrait { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(145deg,#e5f4cf,#9fca7a); border: 2px solid #6a9653; font-size: 25px; box-shadow: inset 0 0 0 2px rgba(255,255,255,.65); }
@@ -146,7 +150,9 @@
       .world-control { width: 38px; height: 38px; }
       #placement-rotation { right: 8px; bottom: 54px; }
       .farm-management-grid { grid-template-columns: 1fr; }
-      #hud-top { top: 6px; left: 6px; right: 6px; max-width: none; padding: 7px 10px; gap: 6px; border-radius: 14px; }
+      #hud-top { top: 6px; left: 6px; right: 6px; padding: 7px 8px; gap: 6px; border-radius: 10px; }
+      #left-secondary-ui { top: var(--secondary-ui-top, 74px); left: 8px; max-width: calc(100vw - 16px); gap: 7px; }
+      .farm-name-wrapper, #worker-task-panel { max-width: calc(100vw - 16px); }
       .hud-stat, .hud-action-btn { font-size: 11px; }
       .hud-action-btn { padding: 5px 7px; }
     }
@@ -171,6 +177,38 @@
     #leaderboard-modal { z-index: 10010; pointer-events: auto !important; }
     #flea-modal { z-index: 10010; pointer-events: auto !important; }
     #flea-modal .modal-panel { width: 500px; max-width: 90vw; }
+        #multiplayer-modal { z-index: 10020; }
+          #pixel-dialog-modal { z-index: 10030; }
+          #pixel-dialog-modal .pixel-dialog-panel { width: min(430px, 92vw); text-align: left; background: #263b2d; color: #fff2c9; border-color: #e5c58a; }
+          #pixel-dialog-title { margin: 0 34px 12px 0; color: #ffe2a1; font: 700 16px monospace; }
+          #pixel-dialog-message { min-height: 44px; white-space: pre-wrap; line-height: 1.55; font: 12px monospace; }
+          #pixel-dialog-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; margin-top: 14px; }
+          .pixel-dialog-action { border: 2px solid #d6bd85; border-radius: 2px; padding: 7px 10px; background: #4b7d49; color: #fff; font: 700 11px monospace; cursor: pointer; }
+        #multiplayer-modal .multiplayer-panel { width: min(680px, 94vw); text-align: left; border-color: #c29152; background: #fff8e8; }
+        .multiplayer-panel h2 { margin: 0 38px 12px 0; color: #405d3f; }
+        #multiplayer-status { min-height: 20px; margin: 0 0 10px; color: #775b3c; font-size: 13px; }
+        .mp-toolbar, .mp-room-actions, .mp-game-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 10px 0; }
+        .mp-toolbar select, .mp-toolbar input, .mp-room-actions select { min-height: 38px; padding: 7px 9px; border: 1px solid #b8a27c; border-radius: 5px; background: #fff; }
+        .mp-toolbar input { flex: 1; min-width: 140px; text-transform: uppercase; }
+        .mp-button { border: 1px solid #526c44; border-radius: 5px; background: #456746; color: #fff; padding: 9px 12px; font-weight: bold; cursor: pointer; }
+        .mp-button.secondary { background: #f0e4cd; color: #3d4535; border-color: #b8a27c; }
+        .mp-button.danger { background: #9d493d; border-color: #76342d; }
+        .mp-button:disabled { opacity: .5; cursor: not-allowed; }
+        .mp-section-title { margin: 18px 0 8px; color: #566844; font-size: 14px; }
+        .mp-room-list, .mp-player-list { display: grid; gap: 7px; max-height: 38vh; overflow: auto; }
+        .mp-room-row, .mp-player-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 9px 10px; border: 1px solid #d6c6a6; background: #fffdf7; }
+        .mp-room-meta, .mp-player-meta { color: #75664d; font-size: 12px; }
+        .mp-room-code { font-family: monospace; font-size: 15px; font-weight: 800; letter-spacing: 1px; color: #344e39; }
+        .mp-banner { padding: 10px 12px; background: #e9efd9; border-left: 4px solid #78965c; margin: 8px 0; }
+        .mp-game-board { min-height: 120px; padding: 12px; background: #e7e6cf; border: 2px solid #85745b; }
+        .mp-role { font-size: 16px; font-weight: 800; color: #3d593d; }
+        .mp-role.impostor { color: #a23931; }
+        .mp-empty { padding: 18px 10px; color: #766b56; text-align: center; border: 1px dashed #c6b48f; }
+        @media (max-width: 600px) {
+          #multiplayer-modal .multiplayer-panel { padding: 20px 16px; max-height: 90vh; }
+          .mp-room-row, .mp-player-row { align-items: flex-start; }
+          .mp-room-actions > *, .mp-game-actions > * { flex: 1 1 130px; }
+        }
     .mkt-box { background: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 15px; text-align: left; }
     .mkt-item { display: flex; justify-content: space-between; align-items: center; border: 1px solid #ccc; padding: 10px; border-radius: 8px; margin-bottom: 8px; background: #fff; }
     .farm-tools-panel { width: min(760px, 94vw); text-align: left; }
@@ -230,8 +268,6 @@
       <button id="btn-leave-gift" class="visit-btn">Leave Gift</button>
   </div>
 
-  <button id="btn-edit-mode" style="display:none;">Edit Mode [OFF]</button>
-
   <div id="edit-popup" onpointerdown="event.stopPropagation();">
     <select id="edit-action-select" aria-label="Choose an edit action">
       <option value="">Choose action</option>
@@ -281,22 +317,44 @@
     <button id="btn-pixel-view" class="hud-action-btn" title="Travel to Pixel Farm" aria-pressed="false">🌾 Travel to Pixel Farm</button>
     <button id="btn-variety-store" class="hud-action-btn" title="Browse farm assets">🧺 Variety</button>
     <button id="btn-showcase-gallery" class="hud-action-btn" title="Farm of the Week">📷 Showcase</button>
+  </div>
+
+  <div id="left-secondary-ui" style="display:none;" onpointerdown="event.stopPropagation();">
+    <button id="btn-edit-mode" style="display:none;">Edit Mode [OFF]</button>
     <div class="farm-name-wrapper" id="farm-name-ui">
       <input type="text" id="ui-farm-name-input" placeholder="Farm Name">
       <button id="btn-save-name">Save</button>
       <button id="btn-showcase-photo" title="Upload a farm photo">Photo</button>
       <button id="btn-profile-image" title="Set profile picture link">Profile</button>
     </div>
+    <div id="worker-task-panel" onpointerdown="event.stopPropagation();">
+      <label for="worker-task-select">Worker Task</label>
+      <select id="worker-task-select"></select>
+      <input id="worker-name-input" type="text" maxlength="18" placeholder="Worker name">
+      <button id="btn-worker-rename" title="Rename selected worker">Rename</button>
+    </div>
   </div>
 
   <div id="pixel-view-root" aria-label="Top-down pixel-art farm view"></div>
 
-  <div id="worker-task-panel" onpointerdown="event.stopPropagation();">
-    <label for="worker-task-select">Worker Task</label>
-    <select id="worker-task-select"></select>
-    <input id="worker-name-input" type="text" maxlength="18" placeholder="Worker name">
-    <button id="btn-worker-rename" title="Rename selected worker">Rename</button>
+  <div id="pixel-dialog-modal" class="modal-bg" style="display:none;" aria-hidden="true">
+    <section class="modal-panel pixel-dialog-panel" role="dialog" aria-modal="true" aria-labelledby="pixel-dialog-title" onpointerdown="event.stopPropagation();">
+      <button class="close-btn" id="pixel-dialog-close" type="button" aria-label="Close dialogue">×</button>
+      <h2 id="pixel-dialog-title"></h2>
+      <div id="pixel-dialog-message" aria-live="polite"></div>
+      <div id="pixel-dialog-actions"></div>
+    </section>
   </div>
+
+  <div id="multiplayer-modal" class="modal-bg" style="display:none;" aria-hidden="true">
+    <section class="modal-panel multiplayer-panel" role="dialog" aria-modal="true" aria-labelledby="multiplayer-title" onpointerdown="event.stopPropagation();">
+      <button class="close-btn" id="btn-close-multiplayer" type="button" aria-label="Close multiplayer lobby">×</button>
+      <h2 id="multiplayer-title">Farm Crew Online</h2>
+      <div id="multiplayer-status" role="status" aria-live="polite"></div>
+      <div id="multiplayer-content"></div>
+    </section>
+  </div>
+
   <div id="interaction-prompt"></div>
 
   <div id="neighbor-bar-wrapper" onpointerdown="event.stopPropagation();">
@@ -438,6 +496,7 @@
     <button class="world-control" id="btn-main-control" title="Click an empty plot or chore to direct your farmer">🧑‍🌾 Control</button>
     <button class="world-control" id="btn-rotate-placement" title="Rotate selected item 90 degrees (R)">↻</button>
     <button class="world-control" id="btn-toolbar-toggle" title="Show or hide build menu">🔨 Build</button>
+    <button class="world-control" id="btn-reset-pixel-farm" type="button" title="Reset Pixel Farm" style="display:none;">Reset</button>
   </div>
   <div id="placement-rotation" style="display:none;">Placement: 0° (press R)</div>
   <!-- MODALS -->
@@ -1184,7 +1243,7 @@
     const PIXEL_FARM_SCHEMA_VERSION = 1;
     const PIXEL_FARM_GRID_SIZE = 24;
 
-    function createDefaultPixelFarmState() {
+    function generateDefaultFarm() {
       return {
         schemaVersion: PIXEL_FARM_SCHEMA_VERSION,
         farmName: 'My Pixel Farm',
@@ -1193,6 +1252,7 @@
         crops: [],
         buildings: [],
         decorations: [],
+        water: [],
         animals: [],
         coins: 500,
         energy: 50,
@@ -1202,21 +1262,44 @@
       };
     }
 
+    function createDefaultPixelFarmState() {
+      return generateDefaultFarm();
+    }
+
     function normalizePixelFarmState(savedState) {
       const defaults = createDefaultPixelFarmState();
       if (!savedState || savedState.schemaVersion !== PIXEL_FARM_SCHEMA_VERSION ||
           savedState.gridSize !== PIXEL_FARM_GRID_SIZE || !Array.isArray(savedState.grid)) return defaults;
       const validGrid = savedState.grid.length === PIXEL_FARM_GRID_SIZE && savedState.grid.every(row =>
-        Array.isArray(row) && row.length === PIXEL_FARM_GRID_SIZE && row.every(cell => Number.isInteger(cell) && cell >= 0 && cell <= 5));
+        Array.isArray(row) && row.length === PIXEL_FARM_GRID_SIZE && row.every(cell => Number.isInteger(cell) && cell >= 0 && cell <= 8));
       if (!validGrid) return defaults;
       return Object.assign(defaults, savedState, {
         grid: savedState.grid.map(row => row.slice()),
         crops: Array.isArray(savedState.crops) ? savedState.crops : [],
         buildings: Array.isArray(savedState.buildings) ? savedState.buildings : [],
         decorations: Array.isArray(savedState.decorations) ? savedState.decorations : [],
+        water: Array.isArray(savedState.water) ? savedState.water : [],
         animals: Array.isArray(savedState.animals) ? savedState.animals : [],
         inventory: savedState.inventory && typeof savedState.inventory === 'object' ? savedState.inventory : {}
       });
+    }
+
+    const PIXEL_GRID_TILE_CODES = { soil: 1, water: 6, path: 7, fences: 8 };
+    const PIXEL_AUTOTILE_FRAME_MAP = {
+      soil: Array.from({ length: 16 }, (_, mask) => mask),
+      path: Array.from({ length: 16 }, (_, mask) => mask),
+      fences: Array.from({ length: 16 }, (_, mask) => mask),
+      water: [0, 1, 1, 3, 1, 2, 3, 3, 1, 3, 2, 3, 3, 3, 3, 3]
+    };
+
+    function calculateBitmask(gridX, gridY, type, gridArray) {
+      const tileCode = typeof type === 'number' ? type : PIXEL_GRID_TILE_CODES[String(type).toLowerCase()];
+      if (!Number.isInteger(tileCode) || !Array.isArray(gridArray)) return 0;
+      const neighbors = [[0, -1, 1], [1, 0, 2], [0, 1, 4], [-1, 0, 8]];
+      return neighbors.reduce((mask, [offsetX, offsetY, bit]) => {
+        const neighborRow = gridArray[gridY + offsetY];
+        return neighborRow && neighborRow[gridX + offsetX] === tileCode ? mask | bit : mask;
+      }, 0);
     }
 
     let pixelFarmState = createDefaultPixelFarmState();
@@ -1604,8 +1687,7 @@
       document.documentElement.style.setProperty('--neighbor-clearance', `${clearance}px`);
       document.documentElement.style.setProperty('--dock-clearance', `${toolbarVisible ? clearance : 14}px`);
       const hudBottom = hudTop.getBoundingClientRect().bottom;
-      const workerPanel = document.getElementById('worker-task-panel');
-      const workerBottom = getComputedStyle(workerPanel).display === 'none' ? 0 : workerPanel.getBoundingClientRect().bottom;
+      document.documentElement.style.setProperty('--secondary-ui-top', `${Math.max(80, Math.ceil(hudBottom + 12))}px`);
     }
 
     // UI TABS
@@ -5385,6 +5467,7 @@
         document.getElementById('toolbar-container').style.display = 'none'; document.getElementById('toolbar-container').classList.add('is-collapsed'); document.getElementById('neighbor-bar-wrapper').style.display = 'none';
         setGameControlVisibility(true);
         document.getElementById('worker-task-panel').style.display = 'none';
+        document.getElementById('left-secondary-ui').style.display = 'none';
         document.getElementById('visitor-actions').style.display = 'flex'; document.getElementById('read-only-badge').style.display = 'block';
         highlightMesh.visible = false;
         document.getElementById('farm-name-ui').style.display = 'none'; document.getElementById('btn-leaderboard').style.display = 'none';
@@ -5397,6 +5480,7 @@
         document.getElementById('toolbar-container').style.display = 'flex'; document.getElementById('toolbar-container').classList.remove('is-collapsed'); document.getElementById('neighbor-bar-wrapper').style.display = 'flex';
         setGameControlVisibility(false);
         document.getElementById('worker-task-panel').style.display = 'flex';
+        document.getElementById('left-secondary-ui').style.display = 'flex';
         document.getElementById('visitor-actions').style.display = 'none'; document.getElementById('read-only-badge').style.display = 'none';
         activeWorkers.forEach(w => w.group.visible = true);
         document.getElementById('farm-name-ui').style.display = 'flex'; document.getElementById('btn-leaderboard').style.display = 'flex';
@@ -6113,24 +6197,30 @@
     const PIXEL_MAP_GUTTER = 5;
     const PIXEL_ASSET_BASE_URL = 'https://ovmbphnhcrjjftovfjwi.supabase.co/storage/v1/object/public/game-assets/';
     const PIXEL_ASSETS = {
-      grass: 'buildings/Grass.png',
-      soil: 'buildings/Tilled Dirt.png',
-      water: 'buildings/Water.png',
+      grass: 'Grass.png',
+      soil: 'Tilled Dirt.png',
+      water: 'Water.png',
+      fences: 'Fences.png',
+      doors: 'Doors.png',
       path: 'buildings/Paths.png',
       farmer: 'Sprites/Basic Charakter Spritesheet.png',
       villager: 'Sprites/Basic Charakter Spritesheet.png',
       crop: 'buildings/Basic Plants.png',
-      lobby: 'buildings/Wooden House.png',
-      farmhouse: 'buildings/Wooden House.png',
-      treehouse: 'buildings/Wooden House.png',
+      lobby: 'House/Wooden House.png',
+      farmhouse: 'House/Wooden House.png',
+      treehouse: 'House/Wooden House.png',
+      greenhouse: 'House/Wooden House.png',
+      building: 'buildings/Free_Chicken_House.png',
       barn: 'buildings/Free_Chicken_House.png',
-      waterwheel: 'buildings/Water.png',
-      tree: 'buildings/Basic Grass Biom things 1.png'
+      waterwheel: 'Water.png',
+      tree: 'buildings/Basic Grass Biom things 1.png',
+      chicken: 'Animals/Free Chicken Sprites.png',
+      cow: 'Animals/Free Cow Sprites.png',
+      nest: 'Animals/Egg_And_Nest.png'
     };
 
     function pixelAssetUrl(assetPath) {
-      const encodedPath = assetPath.split('/').map(segment => encodeURIComponent(segment)).join('/');
-      return PIXEL_ASSET_BASE_URL + encodedPath;
+      return encodeURI(PIXEL_ASSET_BASE_URL + assetPath);
     }
 
     const PIXEL_BUILD_TOOL_CATALOG = {
@@ -6138,17 +6228,48 @@
         { type: 'PIXEL_TILLED_SOIL', label: 'Tilled Soil', asset: 'soil' },
         { type: 'CROP_WHEAT', label: 'Plants', asset: 'crop' },
         { type: 'PIXEL_WATER_TILE', label: 'Water Tile', asset: 'water' },
-        { type: 'PIXEL_STONE_PATH', label: 'Stone Path', asset: 'path' }
+        { type: 'PIXEL_STONE_PATH', label: 'Stone Path', asset: 'path' },
+        { type: 'PIXEL_ERASE', label: 'Erase', asset: 'soil' }
       ],
       'tab-decor': [
         { type: 'BUILD_PIXEL_HOUSE', label: 'Wooden House', asset: 'farmhouse' },
-        { type: 'BUILD_PIXEL_COOP', label: 'Coop / Barn', asset: 'barn' },
+        { type: 'BUILD_PIXEL_COOP', label: 'Chicken Coop', asset: 'barn' },
         { type: 'DECOR_PINE', label: 'Trees', asset: 'tree' },
-        { type: 'DECOR_TULIP', label: 'Flower Patch', asset: 'crop' }
+        { type: 'DECOR_TULIP', label: 'Flora', asset: 'crop' },
+        { type: 'PIXEL_FENCE', label: 'Fence', asset: 'fences' }
       ]
     };
 
-    function renderBuildToolbar() {
+    let toolbarViewMode = '3d';
+    let savedThreeDCatalog = null;
+    let savedThreeDTool = null;
+    let savedPixelTool = 'CROP_WHEAT';
+
+    function renderBuildToolbar(viewMode = '3d') {
+      const farmContent = document.getElementById('tab-farm');
+      const decorContent = document.getElementById('tab-decor');
+      if (viewMode === '3d') {
+        if (toolbarViewMode !== 'pixel') return;
+        savedPixelTool = currentTool;
+        currentTool = savedThreeDTool || currentTool;
+        farmContent.replaceChildren(savedThreeDCatalog.farm);
+        decorContent.replaceChildren(savedThreeDCatalog.decor);
+        savedThreeDCatalog = null;
+        toolbarViewMode = '3d';
+        return;
+      }
+      if (viewMode !== 'pixel') return;
+      if (toolbarViewMode !== 'pixel') {
+        savedThreeDTool = currentTool;
+        savedThreeDCatalog = {
+          farm: document.createDocumentFragment(),
+          decor: document.createDocumentFragment()
+        };
+        while (farmContent.firstChild) savedThreeDCatalog.farm.appendChild(farmContent.firstChild);
+        while (decorContent.firstChild) savedThreeDCatalog.decor.appendChild(decorContent.firstChild);
+        currentTool = savedPixelTool;
+        toolbarViewMode = 'pixel';
+      }
       const selectedToolExists = Object.values(PIXEL_BUILD_TOOL_CATALOG).flat().some(item => item.type === currentTool);
       if (!selectedToolExists) currentTool = 'CROP_WHEAT';
 
@@ -6175,6 +6296,7 @@
           button.append(preview, label);
           button.addEventListener('click', () => {
             currentTool = item.type;
+            savedPixelTool = item.type;
             document.querySelectorAll('.pixel-tool-btn').forEach(tool => tool.classList.toggle('active', tool === button));
           });
           group.appendChild(button);
@@ -6191,6 +6313,7 @@
         crops: pixelFarmState.crops,
         buildings: pixelFarmState.buildings,
         decorations: pixelFarmState.decorations,
+        water: pixelFarmState.water,
         animals: pixelFarmState.animals,
         tilled: pixelFarmState.grid.flatMap((row, rowIndex) => row
           .map((cell, colIndex) => cell === 1 ? `${colIndex}:${rowIndex}` : null)
@@ -6215,9 +6338,13 @@
         if (pixelFarmState.grid[row][col] !== 0) return true;
         pixelFarmState.grid[row][col] = 1;
         markPixelFarmDirty();
-        if (pixelScene) pixelScene.refreshFarm();
+        if (pixelScene) {
+          pixelScene.refreshFarm();
+          pixelScene.recalculateAutotileAround(col, row);
+        }
         return true;
       }
+      if (type === 'PIXEL_ERASE') return pixelFarmRemoveItemAt(col, row);
       const isCrop = type.startsWith('CROP_');
       const isAnimal = type.startsWith('ANIM_');
       const isBuilding = type.startsWith('BUILD_') || isHouseType(type);
@@ -6253,14 +6380,56 @@
       if (isCrop) pixelFarmState.crops.push(item);
       else if (isAnimal) pixelFarmState.animals.push(item);
       else if (isBuilding) pixelFarmState.buildings.push(item);
+      else if (type === 'PIXEL_WATER_TILE') pixelFarmState.water.push(item);
       else pixelFarmState.decorations.push(item);
-      const gridValue = isCrop ? 2 : isAnimal ? 5 : isBuilding ? 3 : 4;
+      const gridValue = isCrop ? 2 : isAnimal ? 5 : isBuilding ? 3
+        : type === 'PIXEL_WATER_TILE' ? 6
+          : type === 'PIXEL_STONE_PATH' ? 7
+            : type === 'PIXEL_FENCE' ? 8 : 4;
       for (let gridRow = row; gridRow < row + footprint.h; gridRow++) {
         for (let gridCol = col; gridCol < col + footprint.w; gridCol++) pixelFarmState.grid[gridRow][gridCol] = gridValue;
       }
       markPixelFarmDirty();
       updateHUD();
-      if (pixelScene) pixelScene.refreshFarm();
+      if (pixelScene) {
+        pixelScene.refreshFarm();
+        pixelScene.recalculateAutotileAround(col, row);
+      }
+      return true;
+    }
+
+    function pixelFarmRemoveItemAt(col, row) {
+      const size = pixelFarmState.gridSize;
+      if (col < 0 || row < 0 || col >= size || row >= size) return false;
+      const tileCode = pixelFarmState.grid[row][col];
+      if (!tileCode) return false;
+      const collections = [pixelFarmState.crops, pixelFarmState.water, pixelFarmState.buildings, pixelFarmState.decorations, pixelFarmState.animals];
+      let removedItem = null;
+      let removedCollection = null;
+      for (const collection of collections) {
+        const item = collection.find(candidate => {
+          const footprint = candidate.type.startsWith('CROP_') || candidate.type.startsWith('ANIM_')
+            ? { w: 1, h: 1 } : getPixelItemSize(candidate.type, Number(candidate.rotation) || 0);
+          return col >= candidate.col && row >= candidate.row && col < candidate.col + footprint.w && row < candidate.row + footprint.h;
+        });
+        if (item) { removedItem = item; removedCollection = collection; break; }
+      }
+      if (removedItem) {
+        removedCollection.splice(removedCollection.indexOf(removedItem), 1);
+        const footprint = removedItem.type.startsWith('CROP_') || removedItem.type.startsWith('ANIM_')
+          ? { w: 1, h: 1 } : getPixelItemSize(removedItem.type, Number(removedItem.rotation) || 0);
+        for (let gridRow = removedItem.row; gridRow < removedItem.row + footprint.h; gridRow++) {
+          for (let gridCol = removedItem.col; gridCol < removedItem.col + footprint.w; gridCol++) pixelFarmState.grid[gridRow][gridCol] = 0;
+        }
+      } else {
+        pixelFarmState.grid[row][col] = 0;
+      }
+      markPixelFarmDirty();
+      updateHUD();
+      if (pixelScene) {
+        pixelScene.refreshFarm();
+        pixelScene.recalculateAutotileAround(col, row);
+      }
       return true;
     }
 
@@ -6284,16 +6453,210 @@
       return true;
     }
 
-    function openFarmMultiplayerLobby() {
+    let deductionRoom = null;
+    let deductionRoomPoll = 0;
+    let deductionPollInFlight = false;
+    const multiplayerModal = document.getElementById('multiplayer-modal');
+    const multiplayerContent = document.getElementById('multiplayer-content');
+    const multiplayerStatus = document.getElementById('multiplayer-status');
+
+    async function callDeductionRpc(functionName, params = {}) {
+      const { data, error } = await supabaseClient.rpc(functionName, params);
+      if (error) throw new Error(error.message || 'Multiplayer service is unavailable.');
+      if (!data || data.success !== true) throw new Error(data && data.message || 'Multiplayer request failed.');
+      return data;
+    }
+
+    function setMultiplayerStatus(message, isError = false) {
+      multiplayerStatus.textContent = message || '';
+      multiplayerStatus.style.color = isError ? '#a23931' : '#775b3c';
+    }
+
+    function renderDeductionRoomList(rooms) {
+      multiplayerContent.innerHTML = `
+        <div class="mp-toolbar">
+          <label for="mp-room-size">Room size</label>
+          <select id="mp-room-size">${Array.from({ length: 8 }, (_, index) => index + 3).map(size => `<option value="${size}"${size === 10 ? ' selected' : ''}>${size} players</option>`).join('')}</select>
+          <button class="mp-button" data-action="create-room" type="button">Create room</button>
+          <button class="mp-button secondary" data-action="refresh-rooms" type="button">Refresh</button>
+        </div>
+        <div class="mp-toolbar">
+          <input id="mp-room-code" maxlength="6" placeholder="Enter room code" aria-label="Room code">
+          <button class="mp-button secondary" data-action="join-code" type="button">Join by code</button>
+        </div>
+        <h3 class="mp-section-title">Open rooms</h3>
+        <div class="mp-room-list">${rooms.length ? rooms.map(room => `
+          <div class="mp-room-row">
+            <div><div class="mp-room-code">${escapeHtml(room.room_code)}</div><div class="mp-room-meta">${Number(room.player_count) || 0} / ${Number(room.max_players) || 10} players · Waiting</div></div>
+            <button class="mp-button secondary" data-join-code="${escapeHtml(room.room_code)}" type="button">Join</button>
+          </div>`).join('') : '<div class="mp-empty">No open rooms yet. Create one and invite friends with its code.</div>'}</div>`;
+    }
+
+    function renderDeductionRoom(room) {
+      deductionRoom = room;
+      const players = Array.isArray(room.players) ? room.players : [];
+      const status = room.status;
+      const isHost = room.is_host === true;
+      const phase = room.phase || 'waiting';
+      const self = players.find(player => player.is_you) || {};
+      const header = `<div class="mp-banner"><strong>Room ${escapeHtml(room.room_code || '')}</strong> · ${players.length} / ${room.max_players} players · ${escapeHtml(status)}</div>`;
+      const roster = `<div class="mp-player-list">${players.map(player => `
+        <div class="mp-player-row">
+          <div><strong>${escapeHtml(player.display_name || 'Farmer')}${player.is_you ? ' (you)' : ''}</strong><div class="mp-player-meta">${player.is_alive === false ? 'Out' : status === 'waiting' ? (player.is_ready ? 'Ready' : 'Not ready') : `${Number(player.tasks_done) || 0} / ${Number(player.tasks_total) || 0} tasks`}${player.is_host ? ' · Host' : ''}${status === 'finished' && player.role ? ` · ${escapeHtml(player.role)}` : ''}</div></div>
+          ${status === 'playing' && phase === 'tasks' && room.my_role === 'impostor' && player.is_you !== true && player.is_alive !== false ? `<button class="mp-button danger" data-eliminate="${escapeHtml(player.player_id)}" type="button">Eliminate</button>` : ''}
+        </div>`).join('')}</div>`;
+
+      if (status === 'waiting') {
+        const allReady = players.length >= 3 && players.every(player => player.is_ready);
+        multiplayerContent.innerHTML = `${header}<h3 class="mp-section-title">Crew</h3>${roster}
+          <div class="mp-room-actions">
+            <button class="mp-button" data-action="toggle-ready" type="button">${room.my_ready ? 'Not ready' : 'Ready up'}</button>
+            ${isHost ? `<button class="mp-button" data-action="start-game" type="button"${allReady ? '' : ' disabled'}>Start game</button>` : ''}
+            <button class="mp-button danger" data-action="leave-room" type="button">Leave room</button>
+          </div><p class="mp-player-meta">The host can start when at least 3 players are ready. Maximum ${room.max_players}.</p>`;
+        return;
+      }
+
+      if (status === 'finished') {
+        multiplayerContent.innerHTML = `${header}<div class="mp-banner"><strong>${room.winner === 'crew' ? 'Crewmates win!' : 'Impostors win!'}</strong> ${escapeHtml(room.game_result || 'Round complete.')}</div><h3 class="mp-section-title">Final roster</h3>${roster}<div class="mp-room-actions"><button class="mp-button danger" data-action="leave-room" type="button">Leave room</button></div>`;
+        return;
+      }
+
+      const taskActions = room.my_role === 'crew' && room.my_alive !== false
+        ? `<button class="mp-button" data-action="complete-task" type="button">Complete task (${Number(room.my_tasks_done) || 0}/${Number(room.my_tasks_total) || 0})</button>` : '';
+      const phaseActions = phase === 'meeting'
+        ? room.my_alive === false ? '<div class="mp-banner">You are out. Watch the discussion until the round ends.</div>'
+          : room.my_has_voted ? '<div class="mp-banner">Vote submitted. Waiting for the other players.</div>'
+            : `<div class="mp-game-actions"><label for="mp-vote-target">Vote</label><select id="mp-vote-target"><option value="SKIP">Skip vote</option>${players.filter(player => player.is_alive !== false && !player.is_you).map(player => `<option value="${escapeHtml(player.player_id)}">${escapeHtml(player.display_name)}</option>`).join('')}</select><button class="mp-button" data-action="cast-vote" type="button">Submit vote</button></div>`
+        : room.my_alive === false ? '<div class="mp-banner">You are out. Watch the discussion until the round ends.</div>'
+          : `<div class="mp-game-actions">${taskActions}<button class="mp-button secondary" data-action="report-meeting" type="button">Call a meeting</button></div>`;
+      const role = room.my_role || 'crew';
+      multiplayerContent.innerHTML = `${header}<div class="mp-game-board"><div class="mp-role${role === 'impostor' ? ' impostor' : ''}">You are ${escapeHtml(role)}</div><p>${phase === 'meeting' ? 'Discuss and vote to eject one player.' : role === 'impostor' ? 'Blend in, then eliminate a crewmate.' : 'Finish tasks and watch for suspicious activity.'}</p><div class="mp-player-meta">${Number(room.crew_tasks_done) || 0} / ${Number(room.crew_tasks_total) || 0} crew tasks completed · Meeting ${Number(room.meeting_number) || 0}</div></div><h3 class="mp-section-title">Players</h3>${roster}${phaseActions}<div class="mp-room-actions"><button class="mp-button danger" data-action="leave-room" type="button">Leave game</button></div>`;
+    }
+
+    async function refreshDeductionLobby() {
+      if (deductionRoom) {
+        try {
+          const room = await callDeductionRpc('deduction_get_room', { p_user_email: currentUserEmail, p_room_id: deductionRoom.room_id });
+          renderDeductionRoom(room);
+          setMultiplayerStatus('');
+          return;
+        } catch (error) {
+          deductionRoom = null;
+          throw error;
+        }
+      }
+      const data = await callDeductionRpc('deduction_list_rooms', { p_user_email: currentUserEmail });
+      if (data.my_room) {
+        deductionRoom = data.my_room;
+        renderDeductionRoom(deductionRoom);
+      } else renderDeductionRoomList(data.rooms || []);
+      setMultiplayerStatus('');
+    }
+
+    function startDeductionRoomPolling() {
+      clearInterval(deductionRoomPoll);
+      deductionRoomPoll = setInterval(async () => {
+        if (multiplayerModal.style.display === 'none' || deductionPollInFlight) return;
+        deductionPollInFlight = true;
+        try { await refreshDeductionLobby(); }
+        catch (error) { setMultiplayerStatus(error.message, true); }
+        finally { deductionPollInFlight = false; }
+      }, deductionRoom ? 1400 : 2500);
+    }
+
+    async function handleDeductionLobbyAction(event) {
+      const joinButton = event.target.closest('[data-join-code]');
+      const eliminateButton = event.target.closest('[data-eliminate]');
+      try {
+        if (eliminateButton) {
+          const data = await callDeductionRpc('deduction_eliminate_player', { p_user_email: currentUserEmail, p_room_id: deductionRoom.room_id, p_target_player_id: eliminateButton.dataset.eliminate });
+          renderDeductionRoom(data);
+          return;
+        }
+        if (joinButton) {
+          deductionRoom = await callDeductionRpc('deduction_join_room', { p_user_email: currentUserEmail, p_room_code: joinButton.dataset.joinCode });
+          renderDeductionRoom(deductionRoom);
+          startDeductionRoomPolling();
+          return;
+        }
+        const action = event.target.closest('[data-action]')?.dataset.action;
+        if (!action) return;
+        if (action === 'create-room') {
+          deductionRoom = await callDeductionRpc('deduction_create_room', {
+            p_user_email: currentUserEmail,
+            p_player_name: farmName === 'My Farm' ? currentUserEmail.split('@')[0] : farmName,
+            p_max_players: Number(document.getElementById('mp-room-size').value)
+          });
+          renderDeductionRoom(deductionRoom);
+          startDeductionRoomPolling();
+        } else if (action === 'refresh-rooms') {
+          deductionRoom = null;
+          await refreshDeductionLobby();
+        } else if (action === 'join-code') {
+          const roomCode = document.getElementById('mp-room-code').value.trim().toUpperCase();
+          if (!roomCode) throw new Error('Enter a room code first.');
+          deductionRoom = await callDeductionRpc('deduction_join_room', { p_user_email: currentUserEmail, p_room_code: roomCode });
+          renderDeductionRoom(deductionRoom);
+          startDeductionRoomPolling();
+        } else if (action === 'toggle-ready') {
+          deductionRoom = await callDeductionRpc('deduction_set_ready', { p_user_email: currentUserEmail, p_room_id: deductionRoom.room_id, p_is_ready: !deductionRoom.my_ready });
+          renderDeductionRoom(deductionRoom);
+        } else if (action === 'start-game') {
+          deductionRoom = await callDeductionRpc('deduction_start_game', { p_user_email: currentUserEmail, p_room_id: deductionRoom.room_id });
+          renderDeductionRoom(deductionRoom);
+          startDeductionRoomPolling();
+        } else if (action === 'leave-room') {
+          await callDeductionRpc('deduction_leave_room', { p_user_email: currentUserEmail, p_room_id: deductionRoom.room_id });
+          deductionRoom = null;
+          await refreshDeductionLobby();
+          startDeductionRoomPolling();
+        } else if (action === 'complete-task') {
+          deductionRoom = await callDeductionRpc('deduction_complete_task', { p_user_email: currentUserEmail, p_room_id: deductionRoom.room_id });
+          renderDeductionRoom(deductionRoom);
+        } else if (action === 'report-meeting') {
+          deductionRoom = await callDeductionRpc('deduction_report_meeting', { p_user_email: currentUserEmail, p_room_id: deductionRoom.room_id });
+          renderDeductionRoom(deductionRoom);
+        } else if (action === 'cast-vote') {
+          deductionRoom = await callDeductionRpc('deduction_cast_vote', {
+            p_user_email: currentUserEmail,
+            p_room_id: deductionRoom.room_id,
+            p_target_player_id: document.getElementById('mp-vote-target').value
+          });
+          renderDeductionRoom(deductionRoom);
+        }
+        setMultiplayerStatus('');
+      } catch (error) {
+        setMultiplayerStatus(error.message, true);
+      }
+    }
+
+    multiplayerContent.addEventListener('click', event => { void handleDeductionLobbyAction(event); });
+    document.getElementById('btn-close-multiplayer').addEventListener('click', () => {
+      multiplayerModal.style.display = 'none';
+      multiplayerModal.setAttribute('aria-hidden', 'true');
+      clearInterval(deductionRoomPoll);
+    });
+
+    async function openFarmMultiplayerLobby() {
+      if (!currentUserEmail) {
+        showNotification('Sign in before joining an online room.', '#ffcc00');
+        return { success: false, message: 'A signed-in farm account is required.' };
+      }
       const detail = { userId: USER_ID, farmName };
       window.dispatchEvent(new CustomEvent('farm:multiplayer-lobby-request', { detail }));
-      const runner = window.google && window.google.script && window.google.script.run;
-      if (!runner || typeof runner.createMultiplayerRoom !== 'function') {
-        return Promise.resolve({ success: false, message: 'Room creation is not configured in this project yet.' });
+      multiplayerModal.style.display = 'flex';
+      multiplayerModal.setAttribute('aria-hidden', 'false');
+      setMultiplayerStatus('Connecting to rooms...');
+      try {
+        await refreshDeductionLobby();
+        setMultiplayerStatus('');
+        startDeductionRoomPolling();
+        return { success: true };
+      } catch (error) {
+        setMultiplayerStatus(`${error.message} Run the multiplayer SQL setup in Read.me first.`, true);
+        return { success: false, message: error.message };
       }
-      return new Promise((resolve, reject) => {
-        runner.withSuccessHandler(resolve).withFailureHandler(reject).createMultiplayerRoom(detail);
-      });
     }
 
     window.FarmPixelBridge = {
@@ -6303,6 +6666,16 @@
 
     let pixelScene = null;
     let pixelGame = null;
+
+    document.getElementById('btn-reset-pixel-farm').addEventListener('click', async () => {
+      if (!window.confirm('Reset Pixel Farm to empty grass? This replaces its current saved layout.')) return;
+      pixelFarmState = generateDefaultFarm();
+      savePixelFarmLocalBackup();
+      if (pixelScene) pixelScene.refreshFarm();
+      updateHUD();
+      await savePixelFarmStateNow();
+      showNotification('Pixel Farm reset to clean grass.', '#77bb44');
+    });
 
     function setActiveFarmLocation(location) {
       activeFarmLocation = location === 'legacy' ? 'legacy' : 'pixel';
@@ -6328,11 +6701,12 @@
       document.body.classList.toggle('pixel-view-active', showPixelFarm);
       controls.enabled = !showPixelFarm;
       const toolbar = document.getElementById('toolbar-container');
+      renderBuildToolbar(showPixelFarm ? 'pixel' : '3d');
+      document.getElementById('btn-reset-pixel-farm').style.display = showPixelFarm && !isVisiting ? 'inline-flex' : 'none';
       if (showPixelFarm) {
         toolbar.style.display = 'flex';
         toolbar.classList.remove('is-collapsed');
         document.getElementById('bottom-tools').style.display = 'flex';
-        renderBuildToolbar();
         document.querySelector('[data-target="tab-farm"]').textContent = 'Farming & Crops';
         document.querySelector('[data-target="tab-decor"]').textContent = 'Buildings & Flora';
       } else if (!legacyFarmInitialized) {
@@ -6361,6 +6735,7 @@
       }
 
       const legacyControlDisplay = {
+        'left-secondary-ui': isVisiting ? 'none' : 'flex',
         'btn-leaderboard': 'flex', 'btn-quests-ui': 'flex', 'btn-farm-tools': 'flex', 'btn-orders-ui': 'flex',
         'btn-factory-ui': 'flex', 'btn-guests-ui': 'flex', 'btn-market-ui': 'flex', 'btn-upgrade-shop': 'flex',
         'btn-mailbox-ui': 'flex', 'btn-variety-store': 'flex', 'btn-showcase-gallery': 'flex',
@@ -6402,35 +6777,72 @@
 
         preload() {
           if (!PIXEL_ASSET_BASE_URL) return;
-          ['grass', 'soil', 'water', 'path', 'crop'].forEach(key => {
-            this.load.spritesheet(`pixel-${key}`, pixelAssetUrl(PIXEL_ASSETS[key]), { frameWidth: 32, frameHeight: 32 });
+          this.load.on('loaderror', file => {
+            console.warn(`[Pixel Farm] Asset unavailable: ${file.key} (${file.src})`);
           });
-          ['lobby', 'barn', 'farmhouse', 'treehouse'].forEach(key => {
+          ['grass', 'soil', 'water', 'fences', 'doors', 'path'].forEach(key => {
+            this.load.spritesheet(`pixel-${key}`, pixelAssetUrl(PIXEL_ASSETS[key]), { frameWidth: 16, frameHeight: 16 });
+          });
+          this.load.spritesheet('pixel-crop', pixelAssetUrl(PIXEL_ASSETS.crop), { frameWidth: 32, frameHeight: 32 });
+          ['lobby', 'barn', 'farmhouse', 'treehouse', 'greenhouse', 'building', 'waterwheel', 'tree'].forEach(key => {
             this.load.image(`pixel-${key}`, pixelAssetUrl(PIXEL_ASSETS[key]));
           });
           this.load.spritesheet('pixel-farmer', pixelAssetUrl(PIXEL_ASSETS.farmer), { frameWidth: 32, frameHeight: 48 });
           this.load.spritesheet('pixel-villager', pixelAssetUrl(PIXEL_ASSETS.villager), { frameWidth: 32, frameHeight: 48 });
+          this.load.spritesheet('pixel-chicken', pixelAssetUrl(PIXEL_ASSETS.chicken), { frameWidth: 32, frameHeight: 32 });
+          this.load.spritesheet('pixel-cow', pixelAssetUrl(PIXEL_ASSETS.cow), { frameWidth: 32, frameHeight: 32 });
+          this.load.image('pixel-nest', pixelAssetUrl(PIXEL_ASSETS.nest));
         }
 
         create() {
           pixelScene = this;
-          this.makeFallbackTextures();
+          this.pixelAssetsReady = false;
+          const requiredAssets = ['grass', 'soil', 'water', 'path', 'crop', 'farmer', 'villager', 'lobby', 'farmhouse', 'barn', 'tree'];
+          const missingAssets = requiredAssets.filter(key => !this.textures.exists(`pixel-${key}`));
+          if (missingAssets.length) {
+            const assetList = missingAssets.map(key => `${key}: ${PIXEL_ASSETS[key]}`).join('\n');
+            this.cameras.main.setBackgroundColor('#263b2d');
+            this.add.text(18, 18, `Pixel Farm art is missing from the game-assets bucket:\n\n${assetList}`, {
+              fontFamily: 'monospace', fontSize: '13px', color: '#fff2c9',
+              backgroundColor: '#263b2d', padding: { x: 12, y: 10 },
+              wordWrap: { width: Math.max(240, this.scale.width - 36) }, lineSpacing: 4
+            }).setScrollFactor(0).setDepth(10000);
+            console.error('[Pixel Farm] Required bucket objects are missing:', missingAssets.map(key => PIXEL_ASSETS[key]));
+            return;
+          }
+          this.pixelAssetsReady = true;
+          this.interactionTargets = [];
+          this.staticCollisionRects = [];
+          this.autotileSprites = new Map();
+          this.farmObjects = [];
+          this.ambientVillagers = [];
+          this.buildingsGroup = this.physics.add.staticGroup();
+          this.villagersGroup = this.physics.add.group();
           this.drawGround();
-          this.drawWaterways();
-          this.drawFoliage();
-          this.drawScenery();
           this.createAnimations();
-          this.blockingBuildings = this.physics.add.staticGroup();
           this.createFarmer();
-          this.physics.add.collider(this.farmer, this.blockingBuildings);
+          this.physics.add.collider(this.farmer, this.buildingsGroup);
+          this.physics.add.collider(this.farmer, this.villagersGroup);
+          this.physics.add.collider(this.villagersGroup, this.buildingsGroup);
+          this.interactKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
+          this.interactionPrompt = this.add.text(0, 0, '[E] Interact', {
+            fontFamily: 'monospace', fontSize: '10px', color: '#28251e',
+            backgroundColor: '#fff4ce', padding: { x: 5, y: 3 }
+          }).setOrigin(0.5, 1).setDepth(3000).setInteractive({ useHandCursor: true }).setVisible(false);
+          this.interactionPrompt.on('pointerdown', () => {
+            if (this.currentInteractionTarget) this.interactWithTarget(this.currentInteractionTarget);
+          });
           this.refreshFarm();
-          this.time.addEvent({ delay: 1000, loop: true, callback: () => this.refreshFarm() });
           this.input.on('pointerdown', pointer => this.beginFarmPointer(pointer));
           this.input.on('pointermove', pointer => this.moveFarmPointer(pointer));
           this.input.on('pointerup', pointer => this.endFarmPointer(pointer));
           this.input.on('pointerupoutside', pointer => this.endFarmPointer(pointer));
+          this.input.keyboard.on('keydown-E', () => {
+            if (this.currentInteractionTarget) this.interactWithTarget(this.currentInteractionTarget);
+          });
           this.scale.on('resize', () => this.fitCamera());
           this.fitCamera();
+          this.exteriorObjects = this.children.getChildren().filter(object => !(object.body && object.body.isStatic));
         }
 
         makeFallbackTextures() {
@@ -6547,7 +6959,7 @@
         }
 
         update(_time, delta) {
-          if (!this.farmer || activeFarmLocation !== 'pixel') return;
+          if (!this.pixelAssetsReady || !this.farmer || activeFarmLocation !== 'pixel') return;
           const horizontal = Number(this.cursors.right.isDown || this.moveKeys.D.isDown) - Number(this.cursors.left.isDown || this.moveKeys.A.isDown);
           const vertical = Number(this.cursors.down.isDown || this.moveKeys.S.isDown) - Number(this.cursors.up.isDown || this.moveKeys.W.isDown);
           const magnitude = Math.hypot(horizontal, vertical);
@@ -6566,16 +6978,149 @@
             }
           }
           this.farmer.setDepth(this.farmer.y);
+          this.updateVillagerWander();
           this.ambientVillagers.forEach(villager => villager.setDepth(villager.y));
           this.farmObjects.forEach(object => object.setDepth(object.y));
+          this.updateCropVisuals();
+          this.updateInteractionPrompt();
+        }
+
+        updateCropVisuals() {
+          if (!this.cropVisuals) return;
+          const now = Date.now();
+          this.cropVisuals.forEach(({ sprite, crop, duration }) => {
+            const growth = Math.min(1, Math.max(0.2, (now - crop.plantedAt) / duration));
+            sprite.setAlpha(0.7 + growth * 0.3);
+          });
+        }
+
+        updateInteractionPrompt() {
+          if (this.dialogue && this.dialogue.active) {
+            this.currentInteractionTarget = null;
+            this.interactionPrompt.setVisible(false);
+            return;
+          }
+          const playerX = this.farmer.body.center.x;
+          const playerY = this.farmer.body.center.y;
+          let closest = null;
+          let closestDistance = 48;
+          this.interactionTargets.forEach(target => {
+            const distance = Phaser.Math.Distance.Between(playerX, playerY, target.x, target.y);
+            if (distance < closestDistance) {
+              closest = target;
+              closestDistance = distance;
+            }
+          });
+          this.currentInteractionTarget = closest;
+          this.interactionPrompt.setVisible(Boolean(closest));
+          if (closest) {
+            this.interactionPrompt.setPosition(closest.x, (closest.markerY || closest.y) - 8);
+            this.interactionPrompt.setDepth(Math.max(closest.y, closest.markerY || closest.y) + 20);
+          }
+        }
+
+        updateVillagerWander() {
+          this.ambientVillagers.forEach(villager => {
+            const wanderTarget = villager.wanderTarget;
+            const distance = Phaser.Math.Distance.Between(villager.x, villager.y, wanderTarget.x, wanderTarget.y);
+            if (this.time.now >= villager.nextWanderAt) {
+              villager.body.setVelocity(0, 0);
+              const idle = Math.random() < 0.28;
+              if (idle) {
+                villager.wanderTarget = { x: villager.x, y: villager.y };
+                villager.nextWanderAt = this.time.now + 700 + Math.random() * 1000;
+              } else {
+                villager.wanderTarget = {
+                  x: Phaser.Math.Between(48, this.mapPixelWidth - 48),
+                  y: Phaser.Math.Between(64, this.mapPixelHeight - 64)
+                };
+                villager.nextWanderAt = this.time.now + 1800 + Math.random() * 1600;
+              }
+            }
+            const dx = villager.wanderTarget.x - villager.x;
+            const dy = villager.wanderTarget.y - villager.y;
+            const magnitude = Math.hypot(dx, dy);
+            if (magnitude > 8) {
+              villager.body.setVelocity(dx / magnitude * 24, dy / magnitude * 24);
+              const direction = Math.abs(dx) > Math.abs(dy) ? (dx < 0 ? 'left' : 'right') : (dy < 0 ? 'up' : 'down');
+              const animation = `villager-walk-${direction}`;
+              if (this.anims.exists(animation)) villager.play(animation, true);
+            } else {
+              villager.body.setVelocity(0, 0);
+              if (villager.anims.isPlaying) { villager.stop(); villager.setFrame(0); }
+            }
+            const interactionTarget = this.interactionTargets.find(item => item.name === villager.name && item.type === 'villager');
+            if (interactionTarget) {
+              interactionTarget.x = villager.body.center.x;
+              interactionTarget.y = villager.body.center.y;
+              interactionTarget.markerY = villager.y - 25;
+            }
+          });
+        }
+
+        registerInteractionTarget(target) {
+          this.interactionTargets.push(target);
+          return target;
+        }
+
+        addStaticCollisionRect(x, y, width, height) {
+          this.staticCollisionRects.push({ x, y, width, height });
+        }
+
+        rebuildBuildingCollisions(dynamicRects = []) {
+          this.buildingsGroup.clear(true, true);
+          [...this.staticCollisionRects, ...dynamicRects].forEach(rect => {
+            const blocker = this.buildingsGroup.create(rect.x, rect.y, 'pixel-grass');
+            blocker.setVisible(false);
+            blocker.body.setSize(rect.width, rect.height);
+            blocker.body.setOffset(16 - rect.width / 2, 16 - rect.height / 2);
+            blocker.refreshBody();
+          });
         }
 
         addTile(key, col, row, alpha = 1) {
           const frameTotal = this.textures.get(`pixel-${key}`).getFrameNames().filter(frameName => frameName !== '__BASE').length;
           const frame = key === 'grass' && frameTotal > 1 ? (col * 7 + row * 3) % frameTotal : 0;
-          const image = this.add.image((col + PIXEL_MAP_GUTTER) * PIXEL_TILE_SIZE + 16, (row + 1) * PIXEL_TILE_SIZE + 16, `pixel-${key}`, frame).setAlpha(alpha).setDepth(0);
+          const image = this.add.image((col + PIXEL_MAP_GUTTER) * PIXEL_TILE_SIZE + 16, (row + 1) * PIXEL_TILE_SIZE + 16, `pixel-${key}`, frame).setScale(2).setAlpha(alpha).setDepth(0);
           (key === 'water' ? this.waterLayer : this.groundLayer).add(image);
+          if (key === 'water') this.addStaticCollisionRect(image.x, image.y, PIXEL_TILE_SIZE, PIXEL_TILE_SIZE);
           return image;
+        }
+
+        createAutotileSprite(col, row, tileCode) {
+          const tileType = ({ 1: 'soil', 6: 'water', 7: 'path', 8: 'fences' })[tileCode];
+          if (!tileType) return null;
+          const x = (col + PIXEL_MAP_GUTTER) * PIXEL_TILE_SIZE + PIXEL_TILE_SIZE / 2;
+          const y = (row + 1) * PIXEL_TILE_SIZE + PIXEL_TILE_SIZE / 2;
+          const textureKey = `pixel-${tileType}`;
+          if (!this.textures.exists(textureKey)) return null;
+          const sprite = this.add.image(x, y, textureKey, 0).setOrigin(0.5).setScale(2).setDepth(y);
+          this.farmObjects.push(sprite);
+          this.autotileSprites.set(`${col}:${row}`, { sprite, tileType });
+          return sprite;
+        }
+
+        recalculateAutotileFrame(col, row) {
+          const tile = this.autotileSprites.get(`${col}:${row}`);
+          if (!tile) return;
+          const bitmask = calculateBitmask(col, row, tile.tileType, pixelFarmState.grid);
+          const mappedFrame = PIXEL_AUTOTILE_FRAME_MAP[tile.tileType][bitmask] ?? 0;
+          const texture = this.textures.get(tile.sprite.texture.key);
+          const frameCount = texture.getFrameNames().filter(name => name !== '__BASE').length;
+          tile.sprite.setFrame(frameCount > mappedFrame ? mappedFrame : 0);
+        }
+
+        recalculateAutotileAround(col, row) {
+          [[0, 0], [0, -1], [1, 0], [0, 1], [-1, 0]].forEach(([offsetX, offsetY]) => {
+            this.recalculateAutotileFrame(col + offsetX, row + offsetY);
+          });
+        }
+
+        recalculateAllAutotileFrames() {
+          this.autotileSprites.forEach((_tile, key) => {
+            const [col, row] = key.split(':').map(Number);
+            this.recalculateAutotileFrame(col, row);
+          });
         }
 
         drawGround() {
@@ -6587,24 +7132,8 @@
           this.waterLayer = this.add.container(0, 0).setDepth(1);
           const worldWidth = (this.mapWidth + PIXEL_MAP_GUTTER) * PIXEL_TILE_SIZE;
           const worldHeight = (this.mapHeight + 1) * PIXEL_TILE_SIZE;
-          this.grassBackground = this.add.tileSprite(worldWidth / 2, worldHeight / 2, worldWidth, worldHeight, 'pixel-grass', 0).setDepth(-1);
+          this.grassBackground = this.add.tileSprite(worldWidth / 2, worldHeight / 2, worldWidth, worldHeight, 'pixel-grass', 0).setTileScale(2, 2).setDepth(-1);
           this.groundLayer.add(this.grassBackground);
-          [[2, 3, 2, 1], [this.currentGridSize + 2, 3, 2, 1], [2, this.mapHeight - 4, 2, 1], [this.currentGridSize + 4, this.mapHeight - 5, 2, 2]].forEach(([centerCol, centerRow, radiusX, radiusY]) => {
-            for (let row = centerRow - radiusY; row <= centerRow + radiusY; row++) {
-              for (let col = centerCol - radiusX; col <= centerCol + radiusX; col++) {
-                const normalized = ((col - centerCol) / radiusX) ** 2 + ((row - centerRow) / radiusY) ** 2;
-                if (normalized <= 1 && col >= 0 && row >= 0 && col < this.mapWidth && row < this.mapHeight) this.addTile('soil', col, row);
-              }
-            }
-          });
-          const pathRow = Math.floor(state.gridSize / 2) + 1;
-          for (let col = 1; col < state.gridSize + 4; col++) this.addTile('path', col, pathRow);
-          for (let row = pathRow - 2; row <= pathRow + 2; row++) this.addTile('path', state.gridSize + 3, row);
-          state.tilled.forEach(key => {
-            const [colText, rowText] = key.split(':');
-            const col = Number(colText); const row = Number(rowText);
-            if (Number.isInteger(col) && Number.isInteger(row)) this.addTile('soil', col, row, 1);
-          });
         }
 
         drawWaterways() {
@@ -6623,11 +7152,14 @@
           const state = pixelFarmViewState();
           const addShadow = (x, y, width, height) => this.add.ellipse(x, y, width, height, 0x182018, 0.28).setDepth(y - 1);
           const addFoliage = (key, col, row) => {
+            const texture = key === 'tree' ? 'pixel-tree' : key === 'flowers' ? 'pixel-crop' : null;
+            if (!texture || !this.textures.exists(texture)) return;
             const x = (col + PIXEL_MAP_GUTTER) * PIXEL_TILE_SIZE + 16;
             const y = (row + 2) * PIXEL_TILE_SIZE;
             addShadow(x, y - 2, key === 'tree' ? 44 : 30, 12);
-            const sprite = this.add.image(x, y, `pixel-foliage-${key}`).setOrigin(0.5, 1);
+            const sprite = this.add.image(x, y, texture, 0).setOrigin(0.5, 1);
             sprite.setDepth(y);
+            if (key === 'tree') this.addStaticCollisionRect(x, y - 8, 26, 16);
           };
           for (let cluster = 0; cluster < 26; cluster++) {
             const side = cluster % 4;
@@ -6652,54 +7184,71 @@
         drawScenery() {
           const state = pixelFarmViewState();
           this.currentGridSize = state.gridSize;
-          const treeKey = this.textures.exists('pixel-tree') ? 'pixel-tree' : 'pixel-tree';
           const lobbyX = state.gridSize + 2; const lobbyY = Math.floor(state.gridSize / 2) - 3;
           const lobbyXWorld = (lobbyX + PIXEL_MAP_GUTTER + 1.5) * PIXEL_TILE_SIZE;
           const lobbyYWorld = (lobbyY + 3) * PIXEL_TILE_SIZE;
           this.add.ellipse(lobbyXWorld, lobbyYWorld - 3, 104, 22, 0x182018, 0.28).setDepth(lobbyYWorld - 4);
           const lobby = this.add.image(lobbyXWorld, lobbyYWorld, 'pixel-lobby').setOrigin(0.5, 1).setDepth(lobbyYWorld).setInteractive({ useHandCursor: true });
-          lobby.setData('interact', () => this.showLobbyDialogue());
+          const lobbyTarget = this.registerInteractionTarget({ x: lobbyXWorld, y: lobbyYWorld - 12, markerY: lobbyYWorld - 62, type: 'lobby', persistent: true });
+          lobby.setData('interact', () => this.interactWithTarget(lobbyTarget));
+          this.addStaticCollisionRect(lobbyXWorld, lobbyYWorld - 9, 78, 18);
           this.add.text(lobby.x, lobby.y + 53, 'MULTI-GAME LOBBY', { fontFamily: 'monospace', fontSize: '10px', color: '#fff2c9', stroke: '#392c25', strokeThickness: 3 }).setOrigin(0.5).setDepth(lobby.depth + 1);
           this.add.text(lobby.x - 19, lobby.y + 7, 'AMONG US', { fontFamily: 'monospace', fontSize: '6px', color: '#ffffff', stroke: '#332a25', strokeThickness: 2 }).setOrigin(0.5).setDepth(lobby.depth + 1);
           this.add.text(lobby.x + 23, lobby.y + 7, '○ △ □', { fontFamily: 'monospace', fontSize: '8px', color: '#fff1d2', stroke: '#332a25', strokeThickness: 2 }).setOrigin(0.5).setDepth(lobby.depth + 1);
 
           const landmarks = [
-            { key: 'pixel-farmhouse', col: state.gridSize + 7, row: 3, width: 96 },
-            { key: 'pixel-barn', col: state.gridSize + 11, row: 9, width: 84 },
-            { key: 'pixel-greenhouse', col: state.gridSize + 9, row: 12, width: 92 }
+            { key: 'pixel-farmhouse', col: state.gridSize + 7, row: 3, width: 96, type: 'farmhouse' },
+            { key: 'pixel-barn', col: state.gridSize + 11, row: 9, width: 84, type: 'building' },
+            { key: 'pixel-greenhouse', col: state.gridSize + 9, row: 12, width: 92, type: 'building' }
           ];
-          landmarks.forEach(({ key, col, row, width }) => {
+          landmarks.forEach(({ key, col, row, width, type }) => {
             const x = (col + PIXEL_MAP_GUTTER + 1.5) * PIXEL_TILE_SIZE;
             const y = (row + 4) * PIXEL_TILE_SIZE;
             this.add.ellipse(x, y - 3, width, 22, 0x182018, 0.28).setDepth(y - 4);
-            this.add.image(x, y, key).setOrigin(0.5, 1).setDepth(y);
+            const building = this.add.image(x, y, key).setOrigin(0.5, 1).setDepth(y).setInteractive({ useHandCursor: true });
+            const target = this.registerInteractionTarget({ x, y: y - 10, markerY: y - 44, type, persistent: true });
+            building.setData('interact', () => this.interactWithTarget(target));
+            this.addStaticCollisionRect(x, y - 9, width * 0.68, 18);
           });
 
           const treehouseX = (state.gridSize + 10 + PIXEL_MAP_GUTTER + 1.5) * PIXEL_TILE_SIZE;
           const treehouseY = (state.gridSize - 4) * PIXEL_TILE_SIZE;
           this.add.ellipse(treehouseX, treehouseY - 3, 100, 24, 0x182018, 0.28).setDepth(treehouseY - 4);
-          this.add.image(treehouseX, treehouseY, 'pixel-treehouse').setOrigin(0.5, 1).setDepth(treehouseY);
+          const treehouse = this.add.image(treehouseX, treehouseY, 'pixel-treehouse').setOrigin(0.5, 1).setDepth(treehouseY).setInteractive({ useHandCursor: true });
+          const treehouseTarget = this.registerInteractionTarget({ x: treehouseX, y: treehouseY - 10, markerY: treehouseY - 43, type: 'building', persistent: true });
+          treehouse.setData('interact', () => this.interactWithTarget(treehouseTarget));
+          this.addStaticCollisionRect(treehouseX, treehouseY - 9, 62, 18);
           const wheelX = (state.gridSize + 12 + PIXEL_MAP_GUTTER + 1) * PIXEL_TILE_SIZE;
           const wheelY = (state.gridSize - 3) * PIXEL_TILE_SIZE;
           this.add.ellipse(wheelX, wheelY - 3, 52, 16, 0x182018, 0.28).setDepth(wheelY - 4);
-          this.add.image(wheelX, wheelY, 'pixel-wheel-prop').setOrigin(0.5, 1).setDepth(wheelY);
+          this.add.image(wheelX, wheelY, 'pixel-waterwheel').setOrigin(0.5, 1).setDepth(wheelY);
 
           this.ambientVillagers = [];
           [[lobbyX - 1, lobbyY + 3, 'Mira'], [lobbyX + 3, lobbyY + 2, 'Pip']].forEach(([col, row, name]) => {
-            const villager = this.add.sprite((col + PIXEL_MAP_GUTTER) * PIXEL_TILE_SIZE + 16, (row + 1) * PIXEL_TILE_SIZE + 14, 'pixel-villager', 0).setDepth((row + 1) * PIXEL_TILE_SIZE + 14).setInteractive({ useHandCursor: true });
-            villager.name = name; villager.kind = 'villager'; villager.setData('interact', () => this.showCharacterDialogue(name));
-            this.tweens.add({ targets: villager, y: villager.y - 2, duration: 520, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' });
-            this.add.text(villager.x, villager.y - 31, 'Interact!', { fontFamily: 'monospace', fontSize: '9px', color: '#28251e', backgroundColor: '#fff4ce', padding: { x: 4, y: 2 } }).setOrigin(0.5).setDepth(villager.depth + 1);
+            const villager = this.physics.add.sprite((col + PIXEL_MAP_GUTTER) * PIXEL_TILE_SIZE + 16, (row + 1) * PIXEL_TILE_SIZE + 14, 'pixel-villager', 0).setOrigin(0.5, 1).setDepth((row + 1) * PIXEL_TILE_SIZE + 14).setInteractive({ useHandCursor: true });
+            villager.name = name; villager.kind = 'villager';
+            villager.body.setSize(12, 14).setOffset(10, 33).setCollideWorldBounds(true);
+            villager.wanderOriginX = villager.x; villager.wanderOriginY = villager.y;
+            villager.wanderTarget = { x: villager.x, y: villager.y };
+            villager.nextWanderAt = this.time.now + 500 + Math.random() * 1000;
+            this.villagersGroup.add(villager);
+            const target = this.registerInteractionTarget({ x: villager.x, y: villager.y - 8, markerY: villager.y - 25, type: 'villager', name, persistent: true });
+            villager.setData('interact', () => this.interactWithTarget(target));
             this.ambientVillagers.push(villager);
           });
-          this.input.on('gameobjectdown', (_pointer, object) => { const action = object.getData('interact'); if (action) action(); });
+          this.input.on('gameobjectdown', (_pointer, object) => {
+            this.pointerInteracted = true;
+            const action = object.getData('interact');
+            if (action) action();
+          });
           this.add.text((state.gridSize / 2 + PIXEL_MAP_GUTTER) * PIXEL_TILE_SIZE, 22, 'My Pixel Farm', {
             fontFamily: 'monospace', fontSize: '16px', color: '#fff2c9', stroke: '#354532', strokeThickness: 4
           }).setOrigin(0.5).setDepth(1200);
         }
 
         handleFarmPointer(pointer) {
-          if (activeFarmLocation !== 'pixel') return;
+          if (activeFarmLocation !== 'pixel' || this.isInsideHouse || this.isChangingHouseScene) return;
+          if (this.time.now < (this.suppressPlacementUntil || 0)) return;
           const world = this.cameras.main.getWorldPoint(pointer.x, pointer.y);
           const col = Math.floor(world.x / PIXEL_TILE_SIZE) - PIXEL_MAP_GUTTER;
           const row = Math.floor(world.y / PIXEL_TILE_SIZE) - 1;
@@ -6710,6 +7259,7 @@
 
         beginFarmPointer(pointer) {
           if (activeFarmLocation !== 'pixel' || pointer.button !== 0) return;
+          this.pointerInteracted = false;
           const camera = this.cameras.main;
           this.pointerDrag = { x: pointer.x, y: pointer.y, scrollX: camera.scrollX, scrollY: camera.scrollY, moved: false };
         }
@@ -6732,7 +7282,9 @@
           if (!this.pointerDrag) return;
           const dragged = this.pointerDrag.moved;
           this.pointerDrag = null;
-          if (!dragged) this.handleFarmPointer(pointer);
+          const interacted = this.pointerInteracted;
+          this.pointerInteracted = false;
+          if (!dragged && !interacted) this.handleFarmPointer(pointer);
         }
 
         fitCamera() {
@@ -6748,37 +7300,218 @@
           else this.cameras.main.centerOn(this.mapPixelWidth / 2, this.mapPixelHeight / 2);
         }
 
-        showDialogue(title, message) {
+        showDialogue(title, message, actions = []) {
           if (this.dialogue) this.dialogue.destroy(true);
-          const width = Math.min(this.scale.width - 32, 420);
-          const panel = this.add.container(this.scale.width / 2, this.scale.height - 66).setScrollFactor(0).setDepth(2000);
-          panel.add(this.add.rectangle(0, 0, width, 76, 0x283b2b, 0.96).setStrokeStyle(3, 0xe5c58a));
-          panel.add(this.add.text(-width / 2 + 14, -24, title, { fontFamily: 'monospace', fontSize: '14px', color: '#ffe2a1' }));
-          panel.add(this.add.text(-width / 2 + 14, 3, message, { fontFamily: 'monospace', fontSize: '11px', color: '#ffffff', wordWrap: { width: width - 28 } }));
-          panel.setSize(width, 76).setInteractive(new Phaser.Geom.Rectangle(-width / 2, -38, width, 76), Phaser.Geom.Rectangle.Contains);
-          panel.on('pointerdown', () => panel.destroy(true));
-          this.dialogue = panel;
+          if (this.dialogueEvent) this.dialogueEvent.remove(false);
+          const modal = document.getElementById('pixel-dialog-modal');
+          const titleElement = document.getElementById('pixel-dialog-title');
+          const messageElement = document.getElementById('pixel-dialog-message');
+          const actionsElement = document.getElementById('pixel-dialog-actions');
+          const closeButton = document.getElementById('pixel-dialog-close');
+          titleElement.textContent = title;
+          messageElement.textContent = '';
+          actionsElement.replaceChildren();
+          modal.style.display = 'flex';
+          modal.setAttribute('aria-hidden', 'false');
+          let visibleCharacters = 0;
+          const messageValue = String(message);
+          const dialogue = {
+            active: true,
+            destroy: () => {
+              if (!dialogue.active) return;
+              dialogue.active = false;
+              modal.style.display = 'none';
+              modal.setAttribute('aria-hidden', 'true');
+              if (this.dialogue === dialogue) this.dialogue = null;
+              if (this.dialogueEvent) {
+                this.dialogueEvent.remove(false);
+                this.dialogueEvent = null;
+              }
+            }
+          };
+          this.dialogue = dialogue;
+          closeButton.onclick = () => dialogue.destroy();
+          this.dialogueEvent = this.time.addEvent({
+            delay: 22, repeat: messageValue.length,
+            callback: () => { visibleCharacters++; messageElement.textContent = messageValue.slice(0, visibleCharacters); }
+          });
+          actions.forEach(action => {
+            const actionButton = document.createElement('button');
+            actionButton.type = 'button';
+            actionButton.className = 'pixel-dialog-action';
+            actionButton.textContent = action.label;
+            actionButton.addEventListener('click', () => {
+              dialogue.destroy();
+              action.run();
+            });
+            actionsElement.appendChild(actionButton);
+          });
         }
 
-        showCharacterDialogue(name) { this.showDialogue(name, 'The wood is lovely today. What shall we work on?'); }
+        interactWithTarget(target) {
+          this.suppressPlacementUntil = this.time.now + 300;
+          if (target.type === 'villager') this.showCharacterDialogue(target.name);
+          else if (target.type === 'lobby') this.showLobbyDialogue();
+          else if (target.type === 'farmhouse') this.showFarmhouseDialogue(target);
+          else if (target.type === 'crop') this.showCropDialogue(target.cropId);
+          else if (target.type === 'exit') this.exitHouse();
+          else this.showDialogue('Farm Building', 'A quiet place to prepare for the next day.');
+        }
+
+        showCharacterDialogue(name) {
+          const lines = [
+            "Welcome to My Pixel Farm! Let's grow some crops!",
+            'The soil is ready. Plant something and give it a little care.',
+            'Come find me again when the harvest is in!'
+          ];
+          let lineIndex = 0;
+          const showLine = () => this.showDialogue(name, lines[lineIndex], [{
+            label: lineIndex === lines.length - 1 ? 'Goodbye' : 'Next',
+            run: () => {
+              if (lineIndex === lines.length - 1) {
+                if (this.dialogue) this.dialogue.destroy(true);
+                this.dialogue = null;
+              } else {
+                lineIndex++;
+                showLine();
+              }
+            }
+          }]);
+          showLine();
+        }
+
+        showFarmhouseDialogue(target) {
+          this.showDialogue('Farmhouse', 'Rest to restore your energy, or open the farm upgrade shop.', [
+            { label: 'Enter', run: () => this.enterHouse(target) },
+            { label: 'Rest', run: () => {
+              pixelFarmState.energy = 50;
+              markPixelFarmDirty(); updateHUD();
+              this.showDialogue('Farmhouse', 'You rested. Energy restored to 50.');
+            } },
+            { label: 'Upgrades', run: () => {
+              this.showDialogue('Farmhouse', 'Opening farm upgrades.');
+              document.getElementById('btn-upgrade-shop').click();
+            } }
+          ]);
+        }
+
+        showCropDialogue(cropId) {
+          const crop = pixelFarmState.crops.find(item => item.id === cropId);
+          if (!crop) return this.showDialogue('Crop Plot', 'This plot is empty.');
+          const advanceGrowth = (fraction, consumeFertilizer) => {
+            if (consumeFertilizer) {
+              const available = Number(pixelFarmState.inventory.FERTILIZER) || 0;
+              if (available < 1) return this.showDialogue('Crop Plot', 'You need fertilizer in your inventory first.');
+              pixelFarmState.inventory.FERTILIZER = available - 1;
+            }
+            const duration = CROP_GROWTH_TIMES[crop.type] || CROP_GROWTH_TIMES.CROP_WHEAT;
+            crop.plantedAt -= Math.floor(duration * fraction);
+            markPixelFarmDirty();
+            this.refreshFarm();
+            this.showDialogue('Crop Plot', consumeFertilizer ? 'Fertilizer applied. The crop grew faster.' : 'The crop is watered and growing faster.');
+          };
+          this.showDialogue('Crop Plot', 'Choose how to tend this crop.', [
+            { label: 'Water', run: () => advanceGrowth(0.1, false) },
+            { label: 'Harvest', run: () => {
+              if (!harvestPixelCropAt(crop.col, crop.row)) this.showDialogue('Crop Plot', 'This crop is not ready to harvest yet.');
+              else this.showDialogue('Crop Plot', 'Harvest complete.');
+            } },
+            { label: 'Fertilize', run: () => advanceGrowth(0.25, true) }
+          ]);
+        }
 
         showLobbyDialogue() {
-          this.showDialogue('Multi Game Lobby', 'Requesting a multiplayer room...');
-          this.requestLobbyRoom();
+          return openFarmMultiplayerLobby();
         }
 
-        requestLobbyRoom() {
-          openFarmMultiplayerLobby().then(result => {
-            if (!result || result.success !== true) this.showDialogue('Multi Game Lobby', result && result.message || 'Room service is not configured yet.');
-            else this.showDialogue('Multi Game Lobby', result.message || 'Room request received.');
-          }).catch(error => this.showDialogue('Multi Game Lobby', error.message || 'Could not create a room.'));
+        enterHouse(target) {
+          if (this.isInsideHouse || this.isChangingHouseScene || !target) return;
+          this.isChangingHouseScene = true;
+          this.houseEntryPosition = { x: target.x, y: target.y + 42 };
+          this.exteriorCollisionRects = this.staticCollisionRects;
+          this.exteriorInteractionTargets = this.interactionTargets;
+          if (this.dialogue) this.dialogue.destroy(true);
+          if (this.dialogueEvent) this.dialogueEvent.remove(false);
+          this.dialogue = null;
+          this.cameras.main.once('camerafadeoutcomplete', () => {
+            this.exteriorObjects.forEach(object => object.setVisible(false));
+            this.buildingsGroup.clear(true, true);
+            this.staticCollisionRects = [];
+            this.interactionTargets = [];
+            this.isInsideHouse = true;
+            this.drawHouseInterior();
+            this.isChangingHouseScene = false;
+            this.cameras.main.fadeIn(450, 0, 0, 0);
+          });
+          this.cameras.main.fadeOut(350, 0, 0, 0);
+        }
+
+        drawHouseInterior() {
+          const centerX = this.houseEntryPosition.x;
+          const centerY = this.houseEntryPosition.y;
+          const add = object => { this.interiorObjects.push(object); return object; };
+          this.interiorObjects = [];
+          add(this.add.rectangle(centerX, centerY, 304, 208, 0x9d754b).setDepth(10));
+          add(this.add.rectangle(centerX, centerY, 272, 176, 0xc9955d).setDepth(11));
+          add(this.add.rectangle(centerX, centerY - 94, 304, 20, 0x5d4637).setDepth(20));
+          add(this.add.rectangle(centerX - 142, centerY, 20, 208, 0x5d4637).setDepth(20));
+          add(this.add.rectangle(centerX + 142, centerY, 20, 208, 0x5d4637).setDepth(20));
+          add(this.add.rectangle(centerX - 91, centerY + 94, 122, 20, 0x5d4637).setDepth(20));
+          add(this.add.rectangle(centerX + 91, centerY + 94, 122, 20, 0x5d4637).setDepth(20));
+          add(this.add.rectangle(centerX - 65, centerY - 28, 78, 42, 0x6b9f78).setStrokeStyle(4, 0xeee0b7).setDepth(21));
+          add(this.add.rectangle(centerX - 65, centerY - 28, 18, 42, 0xeee0b7).setDepth(22));
+          add(this.add.rectangle(centerX - 65, centerY - 28, 78, 5, 0xeee0b7).setDepth(22));
+          add(this.add.rectangle(centerX + 62, centerY - 38, 68, 42, 0x8c4e46).setDepth(21));
+          add(this.add.rectangle(centerX + 62, centerY - 13, 68, 14, 0xd9b88b).setDepth(22));
+          add(this.add.rectangle(centerX + 65, centerY + 30, 52, 34, 0x76523a).setDepth(21));
+          add(this.add.rectangle(centerX + 65, centerY + 12, 52, 8, 0xd8bc8a).setDepth(22));
+          add(this.add.text(centerX, centerY - 74, 'FARMHOUSE', {
+            fontFamily: 'monospace', fontSize: '12px', color: '#fff2c9', stroke: '#49372b', strokeThickness: 3
+          }).setOrigin(0.5).setDepth(30));
+          this.addStaticCollisionRect(centerX - 142, centerY, 20, 208);
+          this.addStaticCollisionRect(centerX + 142, centerY, 20, 208);
+          this.addStaticCollisionRect(centerX, centerY - 94, 304, 20);
+          this.addStaticCollisionRect(centerX - 91, centerY + 94, 122, 20);
+          this.addStaticCollisionRect(centerX + 91, centerY + 94, 122, 20);
+          this.rebuildBuildingCollisions();
+          this.farmer.setPosition(centerX, centerY + 47).setDepth(centerY + 47).setVisible(true);
+          this.farmer.body.setVelocity(0, 0);
+          this.farmer.body.updateFromGameObject();
+          this.interactionTargets = [{ x: centerX, y: centerY + 77, markerY: centerY + 55, type: 'exit' }];
+          this.cameras.main.startFollow(this.farmer, true, 0.08, 0.08);
+        }
+
+        exitHouse() {
+          if (!this.isInsideHouse || this.isChangingHouseScene) return;
+          this.isChangingHouseScene = true;
+          this.cameras.main.once('camerafadeoutcomplete', () => {
+            this.interiorObjects.forEach(object => object.destroy());
+            this.interiorObjects = [];
+            this.staticCollisionRects = this.exteriorCollisionRects;
+            this.interactionTargets = this.exteriorInteractionTargets;
+            this.exteriorObjects.forEach(object => object.setVisible(true));
+            this.farmer.setPosition(this.houseEntryPosition.x, this.houseEntryPosition.y).setDepth(this.houseEntryPosition.y).setVisible(true);
+            this.farmer.body.setVelocity(0, 0);
+            this.farmer.body.updateFromGameObject();
+            this.isInsideHouse = false;
+            this.isChangingHouseScene = false;
+            this.refreshFarm();
+            this.cameras.main.startFollow(this.farmer, true, 0.08, 0.08);
+            this.cameras.main.fadeIn(450, 0, 0, 0);
+          });
+          this.cameras.main.fadeOut(350, 0, 0, 0);
         }
 
         refreshFarm() {
+          if (!this.pixelAssetsReady || this.isInsideHouse || this.isChangingHouseScene) return;
           if (!this.farmObjects) this.farmObjects = [];
           this.farmObjects.forEach(object => object.destroy());
           this.farmObjects = [];
-          if (this.blockingBuildings) this.blockingBuildings.clear(true, true);
+          this.autotileSprites.clear();
+          this.cropVisuals = [];
+          this.interactionTargets = this.interactionTargets.filter(target => target.persistent);
+          this.currentInteractionTarget = null;
+          const dynamicCollisionRects = [];
           const addFarmObject = object => { this.farmObjects.push(object); return object; };
           const state = pixelFarmViewState();
           const point = (item) => {
@@ -6788,6 +7521,15 @@
               y: (item.row + 1) * PIXEL_TILE_SIZE + footprint.h * PIXEL_TILE_SIZE / 2
             };
           };
+          pixelFarmState.grid.forEach((gridRow, row) => {
+            gridRow.forEach((tileCode, col) => {
+              if (![1, 6, 7, 8].includes(tileCode)) return;
+              const sprite = this.createAutotileSprite(col, row, tileCode);
+              if (sprite && (tileCode === 6 || tileCode === 8)) {
+                dynamicCollisionRects.push({ x: sprite.x, y: sprite.y, width: 28, height: 28 });
+              }
+            });
+          });
           state.crops.forEach(crop => {
             const position = point(crop);
             addFarmObject(this.add.image(position.x, position.y, 'pixel-soil', 0).setDepth(position.y));
@@ -6800,8 +7542,12 @@
             addFarmObject(this.add.ellipse(position.x, cropBaseY - 2, 24, 8, 0x182018, 0.22).setDepth(cropBaseY - 3));
             const cropSprite = this.add.image(position.x, cropBaseY, 'pixel-crop', Math.max(0, cropFrame)).setOrigin(0.5, 1).setTint(tint).setAlpha(0.7 + growth * 0.3).setDepth(cropBaseY);
             addFarmObject(cropSprite);
+            this.cropVisuals.push({ sprite: cropSprite, crop, duration });
+            this.registerInteractionTarget({ x: position.x, y: cropBaseY - 8, markerY: cropBaseY - 27, type: 'crop', cropId: crop.id });
+            dynamicCollisionRects.push({ x: position.x, y: cropBaseY - 7, width: 22, height: 14 });
           });
           [...state.buildings, ...state.decorations].forEach(item => {
+            if (['PIXEL_WATER_TILE', 'PIXEL_STONE_PATH', 'PIXEL_FENCE'].includes(item.type)) return;
             const position = point(item);
             const footprint = getPixelItemSize(item.type, Number(item.rotation) || 0);
             const baseY = (item.row + footprint.h + 1) * PIXEL_TILE_SIZE;
@@ -6810,27 +7556,37 @@
                 : item.type === 'DECOR_GREENHOUSE' ? 'pixel-greenhouse'
                   : item.type === 'PIXEL_WATER_TILE' ? 'pixel-water'
                     : item.type === 'PIXEL_STONE_PATH' ? 'pixel-path'
-                      : item.type === 'DECOR_PINE' ? 'pixel-foliage-tree'
-                        : item.type === 'DECOR_TULIP' ? 'pixel-foliage-flowers'
-                          : item.type.includes('WINDMILL') ? 'pixel-wheel-prop' : 'pixel-building';
+                      : item.type === 'DECOR_PINE' ? 'pixel-tree'
+                        : item.type === 'DECOR_TULIP' ? 'pixel-crop'
+                          : item.type.includes('WINDMILL') ? 'pixel-waterwheel' : 'pixel-building';
             addFarmObject(this.add.ellipse(position.x, baseY - 3, footprint.w * PIXEL_TILE_SIZE * 0.85, 18, 0x182018, 0.28).setDepth(baseY - 4));
             const objectSprite = this.add.image(position.x, baseY, key).setOrigin(0.5, 1).setDepth(baseY);
             addFarmObject(objectSprite);
-            if (this.blockingBuildings && state.buildings.includes(item)) {
-              const blocker = this.blockingBuildings.create(position.x, position.y, 'pixel-grass');
-              blocker.setAlpha(0);
-              blocker.body.setSize(footprint.w * PIXEL_TILE_SIZE, footprint.h * PIXEL_TILE_SIZE);
-              blocker.body.updateFromGameObject();
+            if (item.type === 'DECOR_PINE') {
+              dynamicCollisionRects.push({ x: position.x, y: baseY - 8, width: 26, height: 16 });
+            } else if (item.type.startsWith('BUILD_') || isHouseType(item.type)) {
+              const targetType = item.type === 'BUILD_PIXEL_HOUSE' || item.type === 'MAIN_HOUSE' || isHouseType(item.type) ? 'farmhouse' : 'building';
+              this.registerInteractionTarget({ x: position.x, y: baseY - 10, markerY: baseY - 42, type: targetType, itemId: item.id });
+              dynamicCollisionRects.push({
+                x: position.x,
+                y: baseY - 9,
+                width: Math.max(24, footprint.w * PIXEL_TILE_SIZE * 0.76),
+                height: 18
+              });
             }
           });
           state.animals.forEach(animal => {
+            const animalTexture = animal.type === 'ANIM_Cow' ? 'pixel-cow' : animal.type === 'ANIM_Chick' ? 'pixel-chicken' : null;
+            if (!animalTexture || !this.textures.exists(animalTexture)) return;
             const position = point(animal);
             const baseY = position.y + 16;
             addFarmObject(this.add.ellipse(position.x, baseY - 2, 26, 8, 0x182018, 0.22).setDepth(baseY - 3));
-            const sprite = this.add.image(position.x, baseY, 'pixel-animal').setOrigin(0.5, 1).setDepth(baseY);
+            const sprite = this.add.image(position.x, baseY, animalTexture, 0).setOrigin(0.5, 1).setDepth(baseY);
             this.tweens.add({ targets: sprite, y: baseY - 2, duration: 420, yoyo: true, repeat: -1 });
             addFarmObject(sprite);
           });
+          this.recalculateAllAutotileFrames();
+          this.rebuildBuildingCollisions(dynamicCollisionRects);
         }
       }
 
@@ -6846,11 +7602,12 @@
         else pixelGame.scene.pause('PixelFarmScene');
       });
       document.getElementById('btn-pixel-view').addEventListener('click', () => {
-        setActiveFarmLocation(activeFarmLocation === 'pixel' ? 'legacy' : 'pixel');
+        const nextLocation = activeFarmLocation === 'pixel' ? 'legacy' : 'pixel';
+        renderBuildToolbar(nextLocation === 'pixel' ? 'pixel' : '3d');
+        setActiveFarmLocation(nextLocation);
       });
       document.getElementById('btn-multiplayer-lobby').addEventListener('click', () => {
-        if (pixelScene) pixelScene.showLobbyDialogue();
-        else openFarmMultiplayerLobby().then(result => showNotification(result.message, '#77bb44'));
+        openFarmMultiplayerLobby();
       });
     } else {
       document.getElementById('btn-pixel-view').disabled = true;
